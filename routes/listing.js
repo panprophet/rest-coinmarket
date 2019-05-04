@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-
   const rp = require('request-promise');
   const requestOptions = {
     method: 'GET',
     uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
     qs: {
       'start': '1',
-      'limit': '5000',
+      'limit': req.query.limit,
+      'sort': req.query.sort,
       'convert': 'USD'
     },
     headers: {
