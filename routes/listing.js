@@ -7,9 +7,10 @@ router.get('/', function(req, res, next) {
     method: 'GET',
     uri: 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest',
     qs: {
-      'start': '1',
-      'limit': req.query.limit,
       'sort': req.query.sort,
+      'sort_dir': 'desc',
+      'start': req.query.start,
+      'limit': req.query.limit,
       'convert': 'USD'
     },
     headers: {
